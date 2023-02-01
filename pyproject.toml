@@ -17,7 +17,7 @@ readme = "README.md"
 license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
-dependencies = ["pytest", "networkx", "matplotlib"]
+dependencies = ["pytest", "networkx"]
 
 [project.urls]
 Home = "https://github.com/J-Pesos/HW2-BFS"
