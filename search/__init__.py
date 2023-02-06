@@ -5,4 +5,4 @@ Assignment 2: Breadth-first search
 
 from .graph import Graph
 
-_version_ = "0.1.1"
+__version__ = "0.1.1"
