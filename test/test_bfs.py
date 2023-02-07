@@ -11,9 +11,16 @@ def test_bfs_traversal():
     that all nodes are being traversed (ie. returns 
     the right number of nodes, in the right order, etc.)
     """
-    # Use nx.bfs_tree to ensure my bfs function has correct output when navigating tiny_network.
-    tiny_network = nx.read_adjlist("./data/tiny_network.adjlist", create_using=nx.DiGraph, delimiter=";")
-    assert graph.Graph(tiny_network).bfs(start = 'Charles Chiu') == list(nx.bfs_tree(tiny_network, 'Charles Chiu'))
+    # Instantiate Graph class to ensure my bfs function traverses all nodes in correct order.
+    tiny_network = graph.Graph("./data/tiny_network.adjlist")
+    tiny_network_nx = nx.read_adjlist("./data/tiny_network.adjlist", create_using=nx.DiGraph, delimiter=";")
+    
+    for node in tiny_network.graph.nodes():
+        assert tiny_network.bfs(node) == [n for n in nx.bfs_tree(tiny_network_nx, node)]
+
+    # Ensure error is raised when node not in graph is identified.
+    with pytest.raises(Exception):
+        tiny_network.bfs('Ronald McDonald')
 
 def test_bfs():
     """
