@@ -39,11 +39,11 @@ ode input and a path exists, return a list of nodes with the order of the shorte
             raise ValueError("There is no end node in the graph.")
 
         # Ensure graph is connected, evaluated depending on whether directed or undirected.
-        if nx.is_directed(self):
-            if nx.is_weakly_connected(self) == False:
+        if nx.is_directed(self.graph):
+            if nx.is_weakly_connected(self.graph) == False:
                 raise ValueError("The graph is directed, but not connected.")
         else:
-            if nx.is_connected(self) == False:
+            if nx.is_connected(self.graph) == False:
                 raise ValueError("The graph is undirected, but not connected.")
         
         visited = [start] # List of visited nodes. Intialized with start node.
